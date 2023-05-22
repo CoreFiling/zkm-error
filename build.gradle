@@ -13,8 +13,7 @@ group = 'com.corefiling.sample'
 version = "1.0.0-SNAPSHOT"
 
 dependencies {
-    implementation("com.google.code.findbugs:jsr305:3.0.2")
-    implementation("com.google.guava:guava:31.1-jre")
+    implementation("org.apache.commons:commons-lang3:3.9")
 }
 
 tasks.zkmTask.dependsOn(tasks.installDist)
@@ -22,11 +21,10 @@ tasks.zkmTask.dependsOn(tasks.installDist)
 def distFiles = tasks.installDist.outputs.files.asFileTree
 
 def zkmProps = new Properties()
+zkmProps.setProperty("saveDir", new File(project.buildDir, "out").absolutePath)
 tasks.zkmTask {
     doFirst {
-        zkmProps.setProperty("open", distFiles.matching { include("**/guava-*.jar") }.asPath)
-        zkmProps.setProperty("classpath", distFiles.matching { include("**/*.jar") }.asPath)
-        zkmProps.setProperty("saveDir", new File(project.buildDir, "out").absolutePath)
+        zkmProps.setProperty("open", distFiles.matching { include("**/commons-lang3-*.jar") }.asPath)
     }
 }
 

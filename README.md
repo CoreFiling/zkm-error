@@ -8,10 +8,6 @@ Minimal project for reproducing an error when running ZKM fro Gradle.
 
 ### Result
 
-An error similar to one of the following occurs:
+An error similar to the following occurs:
 
-    ZKM: FATAL ERROR: Serious Errors detected during execution of 'obfuscate' statement. : ERROR: Method 'sample_b(java.lang.Object)' in class '/path/to/project/build/install/sample/lib/guava-31.1-jre.jar!com/google/common/collect/ImmutableSet$JdkBackedSetBuilderImpl.class' appears to be invalid (5) : 'Stack mismatch with types: I Lsample_a/sample_a/sample_a/sample_d/sample_ic; : 'analyzing the control flow of method 'add(java.lang.Object)' in class '/path/to/project/build/install/sample/lib/guava-31.1-jre.jar!com/google/common/collect/ImmutableSet$JdkBackedSetBuilderImpl.class' : 'sample_a/sample_a/sample_a/sample_d/sample_ic' (A)''
-
-or
-
-    ZKM: FATAL ERROR: Serious Errors detected during execution of 'obfuscate' statement. : ERROR: Method 'sample_a()' in class '/path/to/project/build/install/sample/lib/guava-31.1-jre.jar!com/google/common/util/concurrent/AbstractService$IsStartableGuard.class' appears to be invalid (5) : 'Inconsistent stack heights 2 1 : 'analyzing the control flow of method 'isSatisfied()' in class '/path/to/project/build/install/sample/lib/guava-31.1-jre.jar!com/google/common/util/concurrent/AbstractService$IsStartableGuard.class' : 'sample_a/sample_a/sample_a/sample_o/sample_a/sample_e3' (A)''
+    ZKM: FATAL ERROR: Serious Errors detected during execution of 'obfuscate' statement. : ERROR: Method 'sample_b(java.lang.Object, java.lang.Object)' in class '/path/to/project/build/install/sample/lib/commons-lang3-3.9.jar!org/apache/commons/lang3/builder/EqualsBuilder.class' appears to be invalid (5) : 'Stack mismatch with types: Ljava/util/Set; I : 'analyzing the control flow of method 'isRegistered(java.lang.Object, java.lang.Object)' in class '/path/to/project/build/install/sample/lib/commons-lang3-3.9.jar!org/apache/commons/lang3/builder/EqualsBuilder.class' : 'sample_a/sample_a/sample_a/sample_a/sample_b/sample_f' (A)''
