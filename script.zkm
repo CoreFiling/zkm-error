@@ -1,0 +1,13 @@
+classpath "%classpath%";
+
+open "%open%";
+
+obfuscate
+  newNamesPrefix="sample_"
+  obfuscateFlow=aggressive
+  encryptStringLiterals=flowObfuscate
+  keepInnerClassInfo=ifNameNotObfuscated
+  lineNumbers=keep
+  mixedCaseClassNames=false;
+
+saveAll archiveCompression=all "%saveDir%";

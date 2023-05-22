@@ -1,0 +1,17 @@
+group = 'com.zelix.gradle'
+version = '1.0.0'
+
+apply plugin: 'groovy'
+//apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+
+dependencies {
+  implementation gradleApi()
+  implementation files("$ZKM_JAR_PATH") //ZKM_JAR_PATH can be set in gradle.properties
+}
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}

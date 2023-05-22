@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.zelix.gradle.plugin'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+group = 'com.corefiling.sample'
+version = "1.0.0-SNAPSHOT"
+
+dependencies {
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
+    implementation("com.google.guava:guava:31.1-jre")
+}
+
+tasks.zkmTask.dependsOn(tasks.installDist)
+
+def distFiles = tasks.installDist.outputs.files.asFileTree
+
+def zkmProps = new Properties()
+tasks.zkmTask {
+    doFirst {
+        zkmProps.setProperty("open", distFiles.matching { include("**/guava-*.jar") }.asPath)
+        zkmProps.setProperty("classpath", distFiles.matching { include("**/*.jar") }.asPath)
+        zkmProps.setProperty("saveDir", new File(project.buildDir, "out").absolutePath)
+    }
+}
+
+zkmSetting {
+    scriptName = project.file("script.zkm").absolutePath
+    extraProperties = zkmProps
+}
