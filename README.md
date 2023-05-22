@@ -1,4 +1,7 @@
-Minimal project for reproducing an error when running ZKM fro Gradle.
+Minimal project for reproducing an error when running ZKM from Gradle.
+
+For simplicity, the `com.zelix.gradle.plugin` plugin is included in the [buildSrc](buildSrc) directory as part of the
+project.
 
 ### Instructions
 
