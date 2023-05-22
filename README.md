@@ -4,7 +4,7 @@ Minimal project for reproducing an error when running ZKM fro Gradle.
 
 1. Set `ZKM_JAR_PATH` in [buildSrc/gradle.properties](buildSrc/gradle.properties) to the location of the ZKM jar (
    version 17.0 or later).
-2. Run `./gradlew zkmTask`.
+2. Run `./gradlew zkmTask` (using a Java 11 or later JDK).
 
 ### Result
 
